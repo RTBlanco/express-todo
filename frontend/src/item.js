@@ -22,13 +22,14 @@ class Item {
   }
 
   remove(){
-    const itemDiv = document.getElementById(`item-${this.id}`)
+    const item = document.getElementById(`item-${this.id}`)
     itemDiv.remove();
     Item.delete(this)
   }
 
   morphToEdit() {
-    console.log('changing')
+    const item = document.getElementById(`item-${this.id}`);
+    console.log(item)
   }
 
   static findByID(id){
