@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('new-item-form'); 
 
+  // fetchItems()
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -14,7 +15,7 @@ function fetchItems() {
   return fetch(BASE_URL)
     .then(req => req.json())
     .then(response => {
-      const itemArea = document.getElementById('item-area')
+      console.log(response)
     })
 }
 

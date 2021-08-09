@@ -5,6 +5,7 @@ class Item {
   }
 
   render() {
+    const items = document.getElementById('item-area');
     const item = document.createElement('div');
     item.className = 'item';
     item.innerHTML = `
@@ -14,7 +15,6 @@ class Item {
         <button>x</button>
       </div>
     `
-
-    return item;
+    items.appendChild(item)
   }
 }
