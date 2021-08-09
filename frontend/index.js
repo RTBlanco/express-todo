@@ -17,7 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
       item.remove();
       deleteItem(item);
     } else if (e.target.innerText === "edit" && e.target.tagName === "BUTTON") {
-      console.log('edit')
+      let nodeId = e.target.parentNode.parentNode.id;
+      let id = nodeId.slice(5);
+      const item = Item.findByID(id);
+      item.morphToEdit();
     }
   })
 
@@ -25,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const BASE_URL = 'http://localhost:3000'
+
 
 
 function fetchItems() {

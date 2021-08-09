@@ -27,6 +27,10 @@ class Item {
     Item.delete(this)
   }
 
+  morphToEdit() {
+    console.log('changing')
+  }
+
   static findByID(id){
     return Item.all.find(i => i.id == id)
   }
@@ -35,4 +39,6 @@ class Item {
     let index = Item.all.indexOf(item)
     Item.all.splice(index, 1)
   }
+
+
 }
