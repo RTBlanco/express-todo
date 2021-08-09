@@ -1,7 +1,9 @@
 class Item {
+  static all = [];
   constructor({id, name}){
     this.id = id;
     this.name = name;
+    Item.all.push(this)
   }
 
   render() {
@@ -17,5 +19,20 @@ class Item {
       </div>
     `
     items.appendChild(item)
+  }
+
+  remove(){
+    const itemDiv = document.getElementById(`item-${this.id}`)
+    itemDiv.remove();
+    Item.delete(this)
+  }
+
+  static findByID(id){
+    return Item.all.find(i => i.id == id)
+  }
+
+  static delete(item){
+    let index = Item.all.indexOf(item)
+    Item.all.splice(index, 1)
   }
 }

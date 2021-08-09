@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(e.target.innerText)
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
       let nodeId = e.target.parentNode.parentNode.id;
-      console.log(nodeId.slice(5));
+      let id = nodeId.slice(5);
+      const item = Item.findByID(id);
+      console.log(item)
     }
   })
 
