@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
       item.morphToEdit();
+    } else if (e.target.innerText === 'save' && e.target.tagName === 'BUTTON') {
+      let nodeId = e.target.parentNode.parentNode.id;
+      let id = nodeId.slice(5);
+      const item = Item.findByID(id);
+      item.morphToShow();
     }
   })
 

@@ -29,7 +29,24 @@ class Item {
 
   morphToEdit() {
     const item = document.getElementById(`item-${this.id}`);
-    console.log(item)
+    item.innerHTML = `
+      <input type="text" name="name" id="${this.id}-name" value="${this.name}">
+      <div class="settings">
+        <button>save</button>
+        <button>x</button>
+      </div>
+    `
+  }
+
+  morphToShow() {
+    const item = document.getElementById(`item-${this.id}`);
+    item.innerHTML = `
+      <h3>${this.name}</h3>
+      <div class="settings">
+        <button>edit</button>
+        <button>x</button>
+      </div>
+    `
   }
 
   static findByID(id){
