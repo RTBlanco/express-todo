@@ -35,15 +35,15 @@ router.post('/new', (req, res) => {
 // PUT edit route
 router.put('/:id', (req, res) => {
   let item = fakeData.find(item => item.id === parseInt(req.params.id));
-  if (req.body.name) {
-    item.name = req.body.name
-  }
-
+  if (req.body.name) {item.name = req.body.name}
   res.json(item)
 })
 
+// DELETE destroy route 
 router.delete('/:id', (req, res) => {
-  
+  let item = fakeData.findIndex(item => item.id === parseInt(req.params.id))
+  fakeData.splice(item, 1)
+  res.json(fakeData)
 })
 
 
