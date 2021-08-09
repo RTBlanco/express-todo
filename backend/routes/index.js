@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-// This not the best way to save information
-const fakeData  = [
-  {id: fakeData.length, name:"something"}
-]
-
+// const fakeData = [
+//   {
+//     id: fakeData.length,
+//     name: "first task"
+//   }
+// ]
 
 /* GET home route. */
 router.get('/', function(req, res) {
-  req.json(fakeData);
+  // req.json(fakeData);
 });
 
 // GET index route
