@@ -25,10 +25,15 @@ body {
   width: 100%;
 }
 
-.new-item-form {
-  border: 1px solid red;
+#new-item-form {
+  /* border: 1px solid red; */
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  width: 100%;
+}
+
+#form-input {
+  width: 100%;
 }
 
 .item-area {
@@ -39,7 +44,7 @@ body {
 
 .item {
   display: flex;
-  border: 1px solid red;
+  border-bottom: 1px solid red;
   justify-content: space-between;
   padding: 10px;
 }
