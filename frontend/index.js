@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     CreateNewItem(formData)
   })
 
+  itemArea.addEventListener('click', (e) => {
+    
+  }
+
 
 })
 
