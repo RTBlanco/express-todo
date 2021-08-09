@@ -23,13 +23,13 @@ router.get('/:id', (req, res) => {
 router.post('/new', (req, res) => {
   console.log(req.body)
 
-  let newItem = {
-    id: fakeData.length + 1,
-    name: req.body.name 
-  }
+  // let newItem = {
+  //   id: fakeData.length + 1,
+  //   name: req.body.name 
+  // }
 
-  fakeData.push(newItem)
-  res.json(newItem)
+  // fakeData.push(newItem)
+  // res.json(newItem)
 })
 
 // PUT edit route
