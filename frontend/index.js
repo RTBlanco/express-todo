@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const item = Item.findByID(id);
       item.remove();
       deleteItem(item);
+    } else if (e.target.innerText === "edit" && e.target.tagName === "BUTTON") {
+      console.log('edit')
     }
   })
 
