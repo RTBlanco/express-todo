@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   itemArea.addEventListener('click', (e) => {
+    // console.log(e)
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
@@ -22,10 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const item = Item.findByID(id);
       item.morphToEdit();
     } else if (e.target.innerText === 'save' && e.target.tagName === 'BUTTON') {
+      // console.log('running')
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
+      let name = document.getElementById(`${item.id}-name`).value
+      console.log(name)
+      item.name = name
+      updateItem(item)
       item.morphToShow();
+      
     }
   })
 
@@ -73,4 +80,16 @@ function deleteItem(item) {
   })
   .then(item = console.log(item))
   .catch(error => console.error(error))
+}
+
+function updateItem(item) {
+  return fetch(`${BASE_URL}/${item.id}`,{
+    method: 'PUT',
+    header: {
+      'Content-Type': 'application/json',
+      "Accept" : "application/json",
+    }, body: JSON.stringify({name: item.name})
+  })
+  .then(req => req.json())
+  .then(item => console.log(item)) 
 }

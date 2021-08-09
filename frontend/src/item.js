@@ -35,6 +35,7 @@ class Item {
         <button>save</button>
         <button>x</button>
       </div>
+
     `
   }
 
