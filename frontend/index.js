@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // console.log(e.target.tagName)
     // console.log(e.target.innerText)
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
-      console.log(e.target.parentNode.parentNode.id)
+      let nodeId = e.target.parentNode.parentNode.id;
+      console.log(nodeId.slice(5));
     }
   })
 
