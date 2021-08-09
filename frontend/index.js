@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   itemArea.addEventListener('click', (e) => {
-    
-  }
+    console.log(e.target.innerText)
+  })
 
 
 })
