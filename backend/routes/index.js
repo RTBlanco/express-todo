@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 
 // POST new route
 router.post('/new', (req, res) => {
-  console.log("name =>", req.body.name)
+  // console.log("name =>", req.body.name)
 
   let newItem = {
     id: fakeData.length + 1,
