@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchItems()
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target)
     
+    CreateNewItem(formData)
   })
 })
 
@@ -24,11 +26,13 @@ function fetchItems() {
 
 function CreateNewItem(item) {
 
-  return fetch(BASE_URL,{
+  console.log('running')
+  return fetch(`${BASE_URL}/new`,{
     method: "POST",
     header: {
       "Accepts" : "application/json"
     },
+
     body: item
   })
     .then(req => req.json())
