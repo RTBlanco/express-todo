@@ -30,3 +30,16 @@ body {
   display: flex;
   align-items: center;
 }
+
+.item-area {
+  border: 1px solid red;
+  width: 100%;
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  border: 1px solid red;
+  justify-content: space-between;
+  padding: 10px;
+}
