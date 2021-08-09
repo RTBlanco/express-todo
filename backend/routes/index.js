@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// This not the best way to save information
+const fakeData  = [
+  {name:"something"}
+]
+
+
+/* GET home route. */
+router.get('/', function(req, res) {
+  req.send(fakeData);
 });
+
+// GET index route
+router.get('/:')
 
 module.exports = router;
