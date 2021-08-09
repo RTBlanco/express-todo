@@ -8,6 +8,7 @@ class Item {
     const items = document.getElementById('item-area');
     const item = document.createElement('div');
     item.className = 'item';
+    item.id = `item-${this.id}`
     item.innerHTML = `
       <h3>${this.name}</h3>
       <div class="settings">
