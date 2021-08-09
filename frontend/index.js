@@ -10,13 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   itemArea.addEventListener('click', (e) => {
-    // console.log(e.target.tagName)
-    // console.log(e.target.innerText)
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
-      console.log(item)
+      item.remove()
     }
   })
 
