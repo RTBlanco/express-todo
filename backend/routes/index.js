@@ -1,10 +1,9 @@
 const express = require('express');
-const { uuid } = require('uuidv4')
 const router = express.Router();
 
 // This not the best way to save information
 const fakeData  = [
-  {id: uuid(), name:"something"}
+  {id: fakeData.length, name:"something"}
 ]
 
 
@@ -14,6 +13,8 @@ router.get('/', function(req, res) {
 });
 
 // GET index route
-router.get('/:')
+router.get('/:id', (req, res) => {
+  let item = fakeData.find(item => item.id === uuid)
+})
 
 module.exports = router;
