@@ -19,6 +19,7 @@ router.get('/:id', (req, res) => {
   res.json(item)
 })
 
+// POST new route
 router.post('/new', (req, res) => {
   console.log(req.body)
 
@@ -30,5 +31,20 @@ router.post('/new', (req, res) => {
   fakeData.push(newItem)
   res.json(newItem)
 })
+
+// PUT edit route
+router.put('/:id', (req, res) => {
+  let item = fakeData.find(item => item.id === parseInt(req.params.id));
+  if (req.body.name) {
+    item.name = req.body.name
+  }
+
+  res.json(item)
+})
+
+router.delete('/:id', (req, res) => {
+  
+})
+
 
 module.exports = router;
