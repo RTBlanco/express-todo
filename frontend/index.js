@@ -3,12 +3,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let name = e.target[0].value;
+    
   })
 })
 
-function CreateNewItem(name) {
-  return fetch('localhost:3000/')
+const BASE_URL = 'http://localhost:3000'
+
+
+function fetchItems() {
+  return fetch(BASE_URL)
+    .then(req => req.json())
+    .then(response => {
+      const itemArea = document.getElementById('item-area')
+    })
+}
+
+function CreateNewItem(item) {
+
+  return fetch(BASE_URL,{
+    method: "POST",
+    header: {
+      "Accepts" : "application/json"
+    },
+    body: item
+  })
     .then(req => req.json())
     .then(response => console.log(response))
 }
