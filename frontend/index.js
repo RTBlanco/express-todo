@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(name)
       item.name = name
       updateItem(item)
-      item.morphToShow();
+      // item.morphToShow();
       
     }
   })
@@ -84,10 +84,10 @@ function deleteItem(item) {
 
 function updateItem(item) {
   return fetch(`${BASE_URL}/${item.id}`,{
-    method: 'PUT',
+    method: 'PATCH',
     header: {
       'Content-Type': 'application/json',
-      "Accept" : "application/json",
+      "Accept" : "application/json"
     }, body: JSON.stringify({name: item.name})
   })
   .then(req => req.json())

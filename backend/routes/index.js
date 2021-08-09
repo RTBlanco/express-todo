@@ -31,7 +31,7 @@ router.post('/new', (req, res) => {
 })
 
 // PUT edit route
-router.put('/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
   let item = fakeData.find(item => item.id === parseInt(req.params.id));
   console.log(req.body)
   if (req.body.name) {item.name = req.body.name}
