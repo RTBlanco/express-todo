@@ -21,15 +21,15 @@ router.get('/:id', (req, res) => {
 
 // POST new route
 router.post('/new', (req, res) => {
-  console.log(req.body)
+  console.log("name =>", req.body.name)
 
-  // let newItem = {
-  //   id: fakeData.length + 1,
-  //   name: req.body.name 
-  // }
+  let newItem = {
+    id: fakeData.length + 1,
+    name: req.body.name 
+  }
 
-  // fakeData.push(newItem)
-  // res.json(newItem)
+  fakeData.push(newItem)
+  res.json(newItem)
 })
 
 // PUT edit route
