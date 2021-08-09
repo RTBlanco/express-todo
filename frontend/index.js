@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('new-item-form'); 
+  const itemArea = document.getElementById('item-area');
 
   fetchItems()
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target)
-
     CreateNewItem(formData)
   })
+
+
 })
 
 const BASE_URL = 'http://localhost:3000'
