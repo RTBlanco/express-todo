@@ -33,5 +33,9 @@ function CreateNewItem(item) {
     },body: item
   })
     .then(req => req.json())
-    .then(response => console.log(response))
+    .then(response => {
+      console.log(response)
+      let newItem = new Item(response);
+      newItem.render(); 
+    })
 }
