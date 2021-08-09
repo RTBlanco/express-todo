@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('new-item-form'); 
 
-  // fetchItems()
+  fetchItems()
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -15,7 +15,10 @@ function fetchItems() {
   return fetch(BASE_URL)
     .then(req => req.json())
     .then(response => {
-      console.log(response)
+      for (let i of response) {
+        let item = new Item(i);
+        item.render()
+      }
     })
 }
 
