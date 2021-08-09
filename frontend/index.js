@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
-      item.remove()
+      item.remove();
+      deleteItem(item);
     }
   })
 
@@ -49,4 +50,16 @@ function CreateNewItem(item) {
       let newItem = new Item(response);
       newItem.render(); 
     })
+}
+
+function deleteItem(item) {
+  return fetch(`${BASE_URL}/${item.id}`,{
+    method: "DELETE",
+    header: {
+      'Content-Type': 'application/json',
+      "Accept" : "application/json",
+    }
+  })
+  .then(item = console.log(item))
+  .catch(error => console.error(error))
 }
