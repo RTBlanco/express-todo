@@ -52,7 +52,7 @@ function fetchItems() {
 function CreateNewItem(item) {
   return fetch(`${BASE_URL}/new`, {
     method: "POST",
-    header: {
+    headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
@@ -69,7 +69,7 @@ function CreateNewItem(item) {
 function deleteItem(item) {
   return fetch(`${BASE_URL}/${item.id}`, {
     method: "DELETE",
-    header: {
+    headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
@@ -83,7 +83,7 @@ function updateItem(item) {
     method: "PATCH",
     header: {
       "Content-Type": "application/json",
-      Accept: "application/json",
+      Accept: "application/json"
     },
     body: JSON.stringify({ name: item.name })
   })
