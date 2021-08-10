@@ -25,10 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
-      let name = document.getElementById(`${item.id}-name`).value;
-      console.log(name);
-      item.name = name;
-      updateItem(item);
+      // let name = document.getElementById(`${item.id}-name`).value;
+      let formData = new FormData()
+      formData.append('name', document.getElementById(`${item.id}-name`).value)
+      // console.log(name);
+      item.name = formData.get('name');
+      updateItem(item, formData);
       // item.morphToShow();
     }
   });
@@ -76,14 +78,15 @@ function deleteItem(item) {
     .catch((error) => console.error(error));
 }
 
-function updateItem(item) {
+function updateItem(item, formData) {
   return fetch(`${BASE_URL}/${item.id}`, {
     method: "PATCH",
     header: {
       "Content-Type": "application/json",
-      Accept: "application/json",
+      Accept: "application/json"
     },
-    body: JSON.stringify({ name: item.name }),
+    // body: JSON.stringify({ name: item.name }),
+    body: formData
   })
     .then((req) => req.json())
     .then((item) => console.log(item));
