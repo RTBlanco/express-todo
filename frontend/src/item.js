@@ -23,7 +23,7 @@ class Item {
 
   remove(){
     const item = document.getElementById(`item-${this.id}`)
-    itemDiv.remove();
+    item.remove();
     Item.delete(this)
   }
 
