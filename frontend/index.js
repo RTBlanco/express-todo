@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   itemArea.addEventListener("click", (e) => {
-    // console.log(e)
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const item = Item.findByID(id);
       item.morphToEdit();
     } else if (e.target.innerText === "save" && e.target.tagName === "BUTTON") {
-      // console.log('running')
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
@@ -52,7 +50,7 @@ function fetchItems() {
 function CreateNewItem(item) {
   return fetch(`${BASE_URL}/new`, {
     method: "POST",
-    headers: {
+    header: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
@@ -69,7 +67,7 @@ function CreateNewItem(item) {
 function deleteItem(item) {
   return fetch(`${BASE_URL}/${item.id}`, {
     method: "DELETE",
-    headers: {
+    header: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
@@ -83,9 +81,9 @@ function updateItem(item) {
     method: "PATCH",
     header: {
       "Content-Type": "application/json",
-      Accept: "application/json"
+      Accept: "application/json",
     },
-    body: JSON.stringify({ name: item.name })
+    body: JSON.stringify({ name: item.name }),
   })
     .then((req) => req.json())
     .then((item) => console.log(item));
