@@ -1,15 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('new-item-form'); 
-  const itemArea = document.getElementById('item-area');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("new-item-form");
+  const itemArea = document.getElementById("item-area");
 
-  fetchItems()
-  form.addEventListener('submit', (e) => {
+  fetchItems();
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target)
-    CreateNewItem(formData)
-  })
+    const formData = new FormData(e.target);
+    CreateNewItem(formData);
+  });
 
-  itemArea.addEventListener('click', (e) => {
+  itemArea.addEventListener("click", (e) => {
     // console.log(e)
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
       let nodeId = e.target.parentNode.parentNode.id;
@@ -22,74 +22,71 @@ document.addEventListener('DOMContentLoaded', () => {
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
       item.morphToEdit();
-    } else if (e.target.innerText === 'save' && e.target.tagName === 'BUTTON') {
+    } else if (e.target.innerText === "save" && e.target.tagName === "BUTTON") {
       // console.log('running')
       let nodeId = e.target.parentNode.parentNode.id;
       let id = nodeId.slice(5);
       const item = Item.findByID(id);
-      let name = document.getElementById(`${item.id}-name`).value
-      console.log(name)
-      item.name = name
-      updateItem(item)
+      let name = document.getElementById(`${item.id}-name`).value;
+      console.log(name);
+      item.name = name;
+      updateItem(item);
       // item.morphToShow();
-      
     }
-  })
+  });
+});
 
-
-})
-
-const BASE_URL = 'http://localhost:3000'
-
-
+const BASE_URL = "http://localhost:3000";
 
 function fetchItems() {
   return fetch(BASE_URL)
-    .then(req => req.json())
-    .then(response => {
+    .then((req) => req.json())
+    .then((response) => {
       for (let i of response) {
         let item = new Item(i);
-        item.render()
+        item.render();
       }
-    })
+    });
 }
 
 function CreateNewItem(item) {
-  return fetch(`${BASE_URL}/new`,{
+  return fetch(`${BASE_URL}/new`, {
     method: "POST",
     header: {
-      "Content-Type" : "application/json",
-      "Accept" : "application/json"
-    },body: item
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: item,
   })
-    .then(req => req.json())
-    .then(response => {
-      console.log(response)
+    .then((req) => req.json())
+    .then((response) => {
+      console.log(response);
       let newItem = new Item(response);
-      newItem.render(); 
-    })
+      newItem.render();
+    });
 }
 
 function deleteItem(item) {
-  return fetch(`${BASE_URL}/${item.id}`,{
+  return fetch(`${BASE_URL}/${item.id}`, {
     method: "DELETE",
     header: {
-      'Content-Type': 'application/json',
-      "Accept" : "application/json",
-    }
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
   })
-  .then(item = console.log(item))
-  .catch(error => console.error(error))
+    .then((item = console.log(item)))
+    .catch((error) => console.error(error));
 }
 
 function updateItem(item) {
-  return fetch(`${BASE_URL}/${item.id}`,{
-    method: 'PATCH',
+  return fetch(`${BASE_URL}/${item.id}`, {
+    method: "PATCH",
     header: {
-      'Content-Type': 'application/json',
-      "Accept" : "application/json"
-    }, body: JSON.stringify({name: item.name})
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ name: item.name }),
   })
-  .then(req => req.json())
-  .then(item => console.log(item)) 
+    .then((req) => req.json())
+    .then((item) => console.log(item));
 }
