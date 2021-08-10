@@ -7,32 +7,32 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     CreateNewItem(formData);
+    e.target[0].value = ""
   });
 
   itemArea.addEventListener("click", (e) => {
+    let ItemDiv = e.target.parentNode.parentNode;
+    let id = ItemDiv.id.slice(5);
+    const item = Item.findByID(id);
+
     if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
-      let nodeId = e.target.parentNode.parentNode.id;
-      let id = nodeId.slice(5);
-      const item = Item.findByID(id);
       item.remove();
       deleteItem(item);
     } else if (e.target.innerText === "edit" && e.target.tagName === "BUTTON") {
-      let nodeId = e.target.parentNode.parentNode.id;
-      let id = nodeId.slice(5);
-      const item = Item.findByID(id);
       item.morphToEdit();
-    } else if (e.target.innerText === "save" && e.target.tagName === "BUTTON") {
-      let nodeId = e.target.parentNode.parentNode.id;
-      let id = nodeId.slice(5);
-      const item = Item.findByID(id);
-      // let name = document.getElementById(`${item.id}-name`).value;
-      let formData = new FormData()
-      formData.append('name', document.getElementById(`${item.id}-name`).value)
-      // console.log(name);
-      item.name = formData.get('name');
-      updateItem(item, formData);
-      // item.morphToShow();
-    }
+      ItemDiv.addEventListener('keypress', (enter) => {
+        console.log(enter)
+        if (enter.key === 'Enter') {
+          
+          let formData = new FormData()
+          
+          formData.append('name', document.getElementById(`${item.id}-name`).value)
+          item.name = formData.get('name');
+          updateItem(item, formData);
+          item.morphToShow();
+        }
+      })
+    } 
   });
 });
 

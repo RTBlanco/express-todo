@@ -32,7 +32,6 @@ class Item {
     item.innerHTML = `
       <input type="text" name="name" id="${this.id}-name" value="${this.name}">
       <div class="settings">
-        <button>save</button>
         <button>x</button>
       </div>
 
