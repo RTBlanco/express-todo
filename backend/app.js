@@ -14,7 +14,7 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 
-
+app.use(upload.array())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(cors());
 
 // Allows to send FormData
-app.use(upload.array())
+
 
 app.use('/', indexRouter);
 
