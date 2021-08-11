@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -49,6 +50,6 @@ body {
 
 .edit-input {
   border: none;
-  font-size: 1em;
+  font-size: 1.14em;
   font-weight: bold;
 }
