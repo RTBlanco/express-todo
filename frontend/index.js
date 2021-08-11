@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let ItemDiv = e.target.parentNode.parentNode.parentNode;
     let id = ItemDiv.id.slice(5);
     const item = Item.findByID(id);
-    console.log(e.target.parentNode.parentNode.parentNode)
     if (e.target.parentNode.className === "remove" && e.target.parentNode.tagName === "BUTTON") {
       item.remove();
       deleteItem(item);
