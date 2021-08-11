@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   itemArea.addEventListener("click", (e) => {
-    let ItemDiv = e.target.parentNode.parentNode;
+    let ItemDiv = e.target.parentNode.parentNode.parentNode;
     let id = ItemDiv.id.slice(5);
     const item = Item.findByID(id);
-
-    if (e.target.innerText === "x" && e.target.tagName === "BUTTON") {
+    console.log(e.target.parentNode.parentNode.parentNode)
+    if (e.target.parentNode.className === "remove" && e.target.parentNode.tagName === "BUTTON") {
       item.remove();
       deleteItem(item);
-    } else if (e.target.innerText === "edit" && e.target.tagName === "BUTTON") {
+    } else if (e.target.parentNode.className === "edit" && e.target.parentNode.tagName === "BUTTON") {
       item.morphToEdit();
       ItemDiv.addEventListener('keypress', (enter) => {
         if (enter.key === 'Enter') {

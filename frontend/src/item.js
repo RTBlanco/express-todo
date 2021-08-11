@@ -17,8 +17,8 @@ class Item {
     item.innerHTML = `
       <h3>${this.name}</h3>
       <div class="settings">
-        <button class="edit" >${Item.pencil}</button>
-        <button class="remove" >${Item.xButton}</button>
+        <button class="remove" ><img src="src/images/X.png" alt="pencil"></button>
+        <button class="edit" ><img src="src/images/pencil.png" alt="x"></button>
       </div>
     `
     items.appendChild(item)
@@ -35,7 +35,7 @@ class Item {
     item.innerHTML = `
       <input class="edit-input" type="text" name="name" id="${this.id}-name" value="${this.name}">
       <div class="settings">
-        <button class="remove">${Item.xButton}</button>
+        <button class="remove"><img src="src/images/X.png" alt="x"></button>
       </div>
 
     `

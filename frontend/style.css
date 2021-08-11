@@ -13,6 +13,11 @@ button {
   text-decoration: none;
   border: none;
   background-color: whitesmoke;
+  
+}
+
+img {
+  height: 25px;
 }
 
 .container {
