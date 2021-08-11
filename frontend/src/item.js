@@ -30,7 +30,7 @@ class Item {
   morphToEdit() {
     const item = document.getElementById(`item-${this.id}`);
     item.innerHTML = `
-      <input type="text" name="name" id="${this.id}-name" value="${this.name}">
+      <input class="edit-input" type="text" name="name" id="${this.id}-name" value="${this.name}">
       <div class="settings">
         <button>x</button>
       </div>
