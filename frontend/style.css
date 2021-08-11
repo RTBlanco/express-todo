@@ -6,11 +6,13 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: #3F37C9;
 }
 
 .container {
   margin-top: 20px;
-  border: 1px solid black;
+  /* border: 2px solid black; */
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +23,7 @@ body {
 
 #header {
   border: 1px solid black;
+  background-color: #4CC9F0;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -36,14 +39,16 @@ body {
 }
 
 #item-area {
-  border: 1px solid red;
+  border:  solid;
+  border-radius: 25px;
+  background-color: whitesmoke;
   width: 100%;
   height: 100%;
 }
 
 .item {
   display: flex;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(167, 155, 155);
   justify-content: space-between;
   padding: 10px;
 }
