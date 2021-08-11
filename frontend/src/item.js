@@ -17,8 +17,8 @@ class Item {
     item.innerHTML = `
       <h3>${this.name}</h3>
       <div class="settings">
-        <button class="remove" ><img src="src/images/X.png" alt="pencil"></button>
         <button class="edit" ><img src="src/images/pencil.png" alt="x"></button>
+        <button class="remove" ><img src="src/images/X.png" alt="pencil"></button>
       </div>
     `
     items.appendChild(item)
@@ -46,8 +46,8 @@ class Item {
     item.innerHTML = `
       <h3>${this.name}</h3>
       <div class="settings">
-        <button>edit</button>
-        <button>x</button>
+        <button class="edit" ><img src="src/images/pencil.png" alt="x"></button>
+        <button class="remove" ><img src="src/images/X.png" alt="pencil"></button>
       </div>
     `
   }
