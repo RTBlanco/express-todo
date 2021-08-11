@@ -123,4 +123,8 @@ img {
     border: none;
     border-top: 2px solid;
   }
+
+  #form-input {
+    font-size: large;
+  }
 }

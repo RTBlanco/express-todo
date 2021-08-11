@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (e.target.parentNode.className === "edit" && e.target.parentNode.tagName === "BUTTON") {
       item.morphToEdit();
       ItemDiv.addEventListener('keypress', (enter) => {
+        console.log(enter)
         if (enter.key === 'Enter') {
           
           let formData = new FormData()
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://10.0.0.112:3000";
 
 function fetchItems() {
   return fetch(BASE_URL)
