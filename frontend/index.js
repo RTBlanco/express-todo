@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (e.target.innerText === "edit" && e.target.tagName === "BUTTON") {
       item.morphToEdit();
       ItemDiv.addEventListener('keypress', (enter) => {
-        console.log(enter)
         if (enter.key === 'Enter') {
           
           let formData = new FormData()
