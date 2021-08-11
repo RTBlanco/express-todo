@@ -84,7 +84,6 @@ function updateItem(item, formData) {
       "Content-Type": "application/json",
       Accept: "application/json"
     },
-    // body: JSON.stringify({ name: item.name }),
     body: formData
   })
     .then((req) => req.json())
