@@ -9,6 +9,12 @@ body {
   background-color: #3F37C9;
 }
 
+button {
+  text-decoration: none;
+  border: none;
+  background-color: whitesmoke;
+}
+
 .container {
   margin-top: 20px;
   /* border: 2px solid black; */
