@@ -1,5 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
+const mySql = require('mysql');
+
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -42,5 +44,7 @@ app.use('/', indexRouter);
 //   res.render('error');
 // });
 
-app.listen(3000)
+app.listen(3000, () => {
+  console.log('server started on port 3000')
+})
 
