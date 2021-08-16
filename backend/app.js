@@ -17,9 +17,7 @@ const indexRouter = require('./routes/index');
 const db = mySql.createConnection({
   host:'127.0.0.1',
   user: 'root',
-  password: '123456',
-  // port: 3000
-  // database: 'todoexpress'
+  password: '123456'
 });
 
 // Connect 
