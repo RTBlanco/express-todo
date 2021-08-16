@@ -13,6 +13,24 @@ const upload = multer();
 
 const indexRouter = require('./routes/index');
 
+// Create connection
+const db = mySql.createConnection({
+  host:'127.0.0.1',
+  user: 'root',
+  password: '123456',
+  // port: 3000
+  // database: 'todoexpress'
+});
+
+// Connect 
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('mySQL connected')
+})
+
+
 const app = express();
 
 app.use(logger('dev'));
@@ -27,6 +45,15 @@ app.use(upload.array())
 
 
 app.use('/', indexRouter);
+
+app.get('/createDB', (req, res) => {
+  let sql = "CREATE DATABASE nodemysql";
+  db.query(sql, (err, result) => {
+    if(err) {throw err}
+    console.log(result)
+    res.send('Database Created...')
+  })
+})
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
