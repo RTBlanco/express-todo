@@ -15,7 +15,7 @@ const indexRouter = require('./routes/index');
 
 // Create connection
 const db = mySql.createConnection({
-  host:'127.0.0.1',
+  host:'localhost',
   user: 'root',
   password: '123456'
 });
