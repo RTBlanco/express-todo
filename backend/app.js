@@ -1,6 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
-const mySql = require('mysql');
+const mySql = require('mysql2');
 
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -15,7 +15,7 @@ const indexRouter = require('./routes/index');
 
 // Create connection
 const db = mySql.createConnection({
-  host:'127.0.0.1',
+  host:'localhost',
   user: 'root',
   password: 'testtest'
 });
@@ -45,6 +45,7 @@ app.use(upload.array())
 app.use('/', indexRouter);
 
 app.get('/createDB', (req, res) => {
+  console.log('running')
   let sql = "CREATE DATABASE nodemysql";
   db.query(sql, (err, result) => {
     if(err) {throw err}
