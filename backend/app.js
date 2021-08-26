@@ -44,15 +44,15 @@ app.use(upload.array())
 
 app.use('/', indexRouter);
 
-app.get('/createDB', (req, res) => {
-  console.log('running')
-  let sql = "CREATE DATABASE nodemysql";
-  db.query(sql, (err, result) => {
-    if(err) {throw err}
-    console.log(result)
-    res.send('Database Created...')
-  })
-})
+// app.get('/createDB', (req, res) => {
+//   console.log('running')
+//   let sql = "CREATE DATABASE nodemysql";
+//   db.query(sql, (err, result) => {
+//     if(err) {throw err}
+//     console.log(result)
+//     res.send('Database Created...')
+//   })
+// })
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
