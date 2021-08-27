@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('database', 'root', 'testtest', {
+const sequelize = new Sequelize('task_database', 'root', 'testtest', {
   host: 'localhost',
   dialect: 'mysql'
 });
@@ -9,10 +9,10 @@ const sequelize = new Sequelize('database', 'root', 'testtest', {
 
 const checkConnection =async () => {
   try {
-      await sequelize.authenticate();
-      console.log('Connection has been established successfully.');
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
   } catch (error) {
-      console.error('Unable to connect to the database:', error);
+    console.error('Unable to connect to the database:', error);
   }
 }
 

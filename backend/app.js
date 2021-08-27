@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 
 const mySql = require('mysql2');
-const sequelize = require('./dbConnection'));
+const sequelize = require('./dbConnection');
 
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -14,6 +14,9 @@ const upload = multer();
 
 
 const indexRouter = require('./routes/index');
+
+const sync = async () => await sequelize.sync({alter:true})
+sync()
 
 
 // Create connection
