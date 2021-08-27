@@ -1,6 +1,8 @@
 const createError = require('http-errors');
 const express = require('express');
+
 const mySql = require('mysql2');
+const sequelize = require('./dbConnection'));
 
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -13,20 +15,23 @@ const upload = multer();
 
 const indexRouter = require('./routes/index');
 
-// Create connection
-const db = mySql.createConnection({
-  host:'localhost',
-  user: 'root',
-  password: 'testtest'
-});
 
-// Connect 
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log('mySQL connected')
-})
+// Create connection
+// const db = mySql.createConnection({
+//   host:'localhost',
+//   user: 'root',
+//   password: 'testtest'
+// });
+
+// // Connect 
+// db.connect((err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log('mySQL connected')
+// })
+
+
 
 
 const app = express();
