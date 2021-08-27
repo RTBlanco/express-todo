@@ -1,5 +1,9 @@
 const createError = require('http-errors');
 const express = require('express');
+
+const mySql = require('mysql2');
+const sequelize = require('./dbConnection');
+
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -10,6 +14,28 @@ const upload = multer();
 
 
 const indexRouter = require('./routes/index');
+
+const sync = async () => await sequelize.sync({alter:true})
+sync()
+
+
+// Create connection
+// const db = mySql.createConnection({
+//   host:'localhost',
+//   user: 'root',
+//   password: 'testtest'
+// });
+
+// // Connect 
+// db.connect((err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log('mySQL connected')
+// })
+
+
+
 
 const app = express();
 
@@ -25,6 +51,16 @@ app.use(upload.array())
 
 
 app.use('/', indexRouter);
+
+// app.get('/createDB', (req, res) => {
+//   console.log('running')
+//   let sql = "CREATE DATABASE nodemysql";
+//   db.query(sql, (err, result) => {
+//     if(err) {throw err}
+//     console.log(result)
+//     res.send('Database Created...')
+//   })
+// })
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -42,5 +78,7 @@ app.use('/', indexRouter);
 //   res.render('error');
 // });
 
-app.listen(3000)
+app.listen(3000, () => {
+  console.log('server started on port 3000')
+})
 

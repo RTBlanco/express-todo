@@ -1,5 +1,7 @@
 const express = require('express');
+const Task = require('../models/Task');
 const router = express.Router();
+
 
 const fakeData = [
   {
@@ -9,40 +11,50 @@ const fakeData = [
 ]
 
 /* GET home route. */
-router.get('/', function(req, res) {
-  res.json(fakeData);
+router.get('/', async (req, res) => {
+  const tasks = await Task.findAll();
+  res.json(tasks);
 });
 
 // GET index route
-router.get('/:id', (req, res) => {
-  let item = fakeData.find(item => item.id === parseInt(req.params.id));
-  res.json(item)
+router.get('/:id', async (req, res) => {
+  // let item = fakeData.find(item => item.id === parseInt(req.params.id));
+  const task = await Task.findByPk(parseInt(req.params.id))
+  res.json(task)
 })
 
 // POST new route
-router.post('/new', (req, res) => {
-  let newItem = {
-    id: fakeData.length + 1,
-    name: req.body.name 
-  }
-
-  fakeData.push(newItem)
-  res.json(newItem)
+router.post('/new', async (req, res) => {
+  // let newItem = {
+  //   id: fakeData.length + 1,
+  //   name: req.body.name 
+  // }
+  console.log(req.params)
+  let newTask = await Task.create({ name: req.body.name })
+  // fakeData.push(newItem)
+  res.json(newTask)
 })
 
 // PUT edit route
-router.patch('/:id', (req, res) => {
-  let item = fakeData.find(item => item.id === parseInt(req.params.id));
+router.patch('/:id', async (req, res) => {
+  const task = await Task.findByPk(parseInt(req.params.id))
+  // let item = fakeData.find(item => item.id === parseInt(req.params.id));
   console.log(req.body)
-  if (req.body.name) {item.name = req.body.name}
-  res.json(item)
+  if (req.body.name) {
+    task.name = req.body.name
+    await task.save()
+  }
+  res.json(task)
 })
 
 // DELETE destroy route 
-router.delete('/:id', (req, res) => {
-  let item = fakeData.findIndex(item => item.id === parseInt(req.params.id))
-  fakeData.splice(item, 1)
-  res.json(fakeData)
+router.delete('/:id', async (req, res) => {
+  // let item = fakeData.findIndex(item => item.id === parseInt(req.params.id))
+  const task = await Task.findByPk(parseInt(req.params.id))
+  // fakeData.splice(item, 1)
+  task.destroy()
+  const tasks = await Task.findAll()
+  res.json(tasks)
 })
 
 

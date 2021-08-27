@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const BASE_URL = "http://10.0.0.112:3000";
+const BASE_URL = "http://localhost:3000";
 
 function fetchItems() {
   return fetch(BASE_URL)
