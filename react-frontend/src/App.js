@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Item from './Item';
 
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
     e.target[0].value = ''
   }
 
+  const renderItems = () => {
+    return items.map((item, idx) => <Item key={idx} name={item.name} />)
+  }
+
   return (
     <>
       <div id="header">
@@ -25,6 +30,7 @@ function App() {
         </form> 
       </div>
       <div id="item-area">
+        {renderItems()}
       </div>
     </>
   );
