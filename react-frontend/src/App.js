@@ -17,12 +17,16 @@ function App() {
   }
 
   return (
-    <div id="header">
-      <h1>Todo List!</h1>
-      <form id="new-item-form" onSubmit={createItem}>
-        <input id="form-input" type="text" name="name" placeholder="name" />
-      </form> 
-    </div>
+    <>
+      <div id="header">
+        <h1>Todo List!</h1>
+        <form id="new-item-form" onSubmit={createItem}>
+          <input id="form-input" type="text" name="name" placeholder="name" />
+        </form> 
+      </div>
+      <div id="item-area">
+      </div>
+    </>
   );
 }
 
