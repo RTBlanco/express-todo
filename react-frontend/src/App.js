@@ -1,6 +1,7 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Item from './Item';
+import {fetchItems} from './helper/connection'
 
 
 function App() {
@@ -16,6 +17,18 @@ function App() {
     console.log(newITem)
     e.target[0].value = ''
   }
+
+  useEffect(() => {
+    fetchItems()
+      .then(resp => {
+        console.log(resp)
+        setItems(resp)
+      })
+    // return () => {
+    //   cleanup
+    // }
+  }, [])
+
 
   const renderItems = () => {
     return items.map((item, idx) => <Item key={idx} name={item.name} />)
