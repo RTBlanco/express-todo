@@ -3,12 +3,7 @@ const BASE_URL = "http://localhost:3000";
 export function fetchItems() {
   return fetch(BASE_URL)
     .then((req) => req.json())
-    .then((response) => {
-      for (let i of response) {
-        let item = new Item(i);
-        item.render();
-      }
-    });
+    .then((response) => response);
 }
 
 
