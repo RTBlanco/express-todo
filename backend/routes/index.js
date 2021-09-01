@@ -16,6 +16,7 @@ router.get('/:id', async (req, res) => {
 
 // POST new route
 router.post('/new', async (req, res) => {
+  console.log(req.body)
   let newTask = await Task.create({ name: req.body.name })
   res.json(newTask)
 })

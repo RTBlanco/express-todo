@@ -1,7 +1,8 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Item from './Item';
-import {fetchItems} from './helper/connection'
+import {fetchItems, createNewItem} from './helper/connection'
+
 
 
 function App() {
@@ -9,12 +10,18 @@ function App() {
 
   const createItem = e => {
     e.preventDefault();
+
     const newITem = {
       name: e.target[0].value
     }
-    setItems([...items, newITem])
 
-    console.log(newITem)
+    setItems([...items, newITem])
+    
+    // console.log(e.target[0].form)
+    const item = new FormData(e.target[0].form)
+    // console.log(form)
+    createNewItem(item)
+    
     e.target[0].value = ''
   }
 
@@ -39,7 +46,7 @@ function App() {
       <div id="header">
         <h1>Todo List!</h1>
         <form id="new-item-form" onSubmit={createItem}>
-          <input id="form-input" type="text" name="name" placeholder="name" />
+          <input id='name' className="form-input" type="text" name="name" placeholder="name" />
         </form> 
       </div>
       <div id="item-area">

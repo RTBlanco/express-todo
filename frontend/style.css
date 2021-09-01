@@ -50,7 +50,7 @@ img {
   width: 100%;
 }
 
-#form-input {
+.form-input {
   width: 100%;
 }
 
@@ -124,7 +124,7 @@ img {
     border-top: 2px solid;
   }
 
-  #form-input {
+  .form-input {
     font-size: large;
   }
 }
