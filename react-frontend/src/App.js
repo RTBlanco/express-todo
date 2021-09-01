@@ -11,7 +11,7 @@ function App() {
     <div id="header">
       <h1>Todo List!</h1>
       <form id="new-item-form">
-        <input id="form-input" type="text" name="name" id="name" placeholder="name" />
+        <input id="form-input" type="text" name="name" placeholder="name" />
       </form> 
     </div>
     
