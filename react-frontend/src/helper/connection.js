@@ -6,22 +6,17 @@ export function fetchItems() {
 }
 
 
-// export function createNewItem(item) {
-//   return fetch(`${BASE_URL}/new`, {
-//     method: "POST",
-//     header: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json",
-//     },
-//     body: item,
-//   })
-//     .then((req) => req.json())
-//     .then((response) => {
-//       console.log(response);
-//       let newItem = new Item(response);
-//       newItem.render();
-//     });
-// }
+export function createNewItem(item) {
+  return fetch(`${BASE_URL}/new`, {
+    method: "POST",
+    header: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: item,
+  })
+    .then((req) => req.json())
+}
 
 // export function deleteItem(item) {
 //   return fetch(`${BASE_URL}/${item.id}`, {
