@@ -16,6 +16,15 @@ function Item({name, id}){
     setName(e.target.value)
   }
 
+  const handleOnKeyPress = e => {
+    if (e.key === "Enter") {
+      transform()
+      if (name !== itemName) {
+        // save item
+      }
+    }
+  }
+
   const renderNormal = () => {
     return (
       <>
@@ -32,7 +41,7 @@ function Item({name, id}){
     return (
       <>
         <input className="edit-input" type="text" name="name" value={itemName} onChange={handleChange} 
-          onKeyPress={(e) => e.key === 'Enter' && transform()} />
+          onKeyPress={handleOnKeyPress} />
         <div className="settings">
           <button className="remove"><img src={xBtn} alt="x"/></button>
         </div>
