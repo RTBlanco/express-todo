@@ -8,9 +8,12 @@ function App() {
   const createItem = e => {
     e.preventDefault();
     const newITem = {
-      name: e
+      name: e.target[0].value
     }
+    setItems([...items, newITem])
+
     console.log(newITem)
+    e.target[0].value = ''
   }
 
   return (
