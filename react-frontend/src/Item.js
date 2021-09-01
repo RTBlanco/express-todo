@@ -23,9 +23,9 @@ function Item({name, id}){
   const renderEdit = () => {
     return (
       <>
-        <input className="edit-input" type="text" name="name" value="${this.name}" />
+        <input className="edit-input" type="text" name="name" value={name}  />
         <div className="settings">
-          <button class="remove"><img src={xBtn} alt="x"/></button>
+          <button className="remove"><img src={xBtn} alt="x"/></button>
         </div>
       </>
     )
