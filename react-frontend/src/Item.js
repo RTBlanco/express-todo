@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { updateItem } from './helper/connection';
 
 
-function Item({item}){
+function Item({item, remove}){
   const [editing, setEditing] = useState(false);
   const [itemName, setName] = useState(item.name)
 
@@ -36,7 +36,7 @@ function Item({item}){
         <h3>{itemName}</h3>
         <div className="settings">
           <button onClick={transform} className="edit" ><img src={pencil} alt="x"/></button>
-          <button className="remove" ><img src={xBtn} alt="pencil"/></button>
+          <button oncClick={() => remove(item) } className="remove" ><img src={xBtn} alt="pencil"/></button>
         </div>
       </>
     )
@@ -48,7 +48,7 @@ function Item({item}){
         <input className="edit-input" type="text" name="name" value={itemName} onChange={handleChange} 
           onKeyPress={handleOnKeyPress} />
         <div className="settings">
-          <button className="remove"><img src={xBtn} alt="x"/></button>
+          <button oncClick={() => remove(item) } className="remove"><img src={xBtn} alt="x"/></button>
         </div>
       </>
     )
