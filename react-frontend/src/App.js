@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Item from './Item';
-import {fetchItems, createNewItem} from './helper/connection'
+import {fetchItems, createNewItem, deleteItem} from './helper/connection'
 
 
 
@@ -29,6 +29,11 @@ function App() {
     //   cleanup
     // }
   }, [])
+
+  const remove = (item) => {
+    setItems(items.filter(i => i.id !== item.id))
+    deleteItem(item)
+  }
 
 
   const renderItems = () => {
