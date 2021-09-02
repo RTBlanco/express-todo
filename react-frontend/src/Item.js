@@ -1,6 +1,7 @@
 import pencil from '../src/images/pencil.png';
 import xBtn from '../src/images/X.png';
 import {useState} from 'react';
+import {updateItem} from './helper/connection';
 
 
 function Item({item}){
@@ -17,9 +18,13 @@ function Item({item}){
   }
 
   const handleOnKeyPress = e => {
+    console.log(e)
     if (e.key === "Enter") {
       transform()
       if (item.name !== itemName) {
+        const form = new FormData()
+        form.append('name', e.target.value)
+        updateItem(item, form)
         // save item
       }
     }
