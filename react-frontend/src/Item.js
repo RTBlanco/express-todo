@@ -1,7 +1,7 @@
 import pencil from '../src/images/pencil.png';
 import xBtn from '../src/images/X.png';
-import {useState} from 'react';
-import {updateItem} from './helper/connection';
+import { useState } from 'react';
+import { updateItem } from './helper/connection';
 
 
 function Item({item}){

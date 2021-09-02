@@ -37,7 +37,7 @@ function App() {
 
 
   const renderItems = () => {
-    return items.map((item) => <Item key={item.id} item={item} />)
+    return items.map((item) => <Item key={item.id} item={item} remove={remove} />)
   }
 
   return (
