@@ -16,12 +16,8 @@ function App() {
     }
 
     setItems([...items, newITem])
-    
-    // console.log(e.target[0].form)
     const item = new FormData(e.target[0].form)
-    // console.log(form)
     createNewItem(item)
-    
     e.target[0].value = ''
   }
 
