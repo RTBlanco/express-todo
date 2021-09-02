@@ -18,17 +18,17 @@ export function createNewItem(item) {
     .then((req) => req.json())
 }
 
-// export function deleteItem(item) {
-//   return fetch(`${BASE_URL}/${item.id}`, {
-//     method: "DELETE",
-//     header: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json",
-//     },
-//   })
-//     .then((item = console.log(item)))
-//     .catch((error) => console.error(error));
-// }
+export function deleteItem(item) {
+  return fetch(`${BASE_URL}/${item.id}`, {
+    method: "DELETE",
+    header: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  })
+    .then((item = console.log(item)))
+    .catch((error) => console.error(error));
+}
 
 export function updateItem(item, formData) {
   return fetch(`${BASE_URL}/${item.id}`, {
