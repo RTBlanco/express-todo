@@ -11,13 +11,11 @@ function App() {
   const createItem = e => {
     e.preventDefault();
 
-    const newITem = {
-      name: e.target[0].value
-    }
-
-    setItems([...items, newITem])
+    // setItems([...items, newITem])
     const item = new FormData(e.target[0].form)
-    createNewItem(item)
+    createNewItem(item).then(resp => {
+      setItems([...items, resp])
+    })
     e.target[0].value = ''
   }
 
@@ -34,7 +32,7 @@ function App() {
 
 
   const renderItems = () => {
-    return items.map((item, idx) => <Item key={idx} name={item.name} />)
+    return items.map((item) => <Item key={item.id} name={item.name} />)
   }
 
   return (

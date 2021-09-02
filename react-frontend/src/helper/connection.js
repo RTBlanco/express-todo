@@ -30,15 +30,14 @@ export function createNewItem(item) {
 //     .catch((error) => console.error(error));
 // }
 
-// export function updateItem(item, formData) {
-//   return fetch(`${BASE_URL}/${item.id}`, {
-//     method: "PATCH",
-//     header: {
-//       "Content-Type": "application/json",
-//       Accept: "application/json"
-//     },
-//     body: formData
-//   })
-//     .then((req) => req.json())
-//     .then((item) => console.log(item));
-// }
+export function updateItem(item, formData) {
+  return fetch(`${BASE_URL}/${item.id}`, {
+    method: "PATCH",
+    header: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: formData
+  })
+    .then((req) => req.json())
+}
