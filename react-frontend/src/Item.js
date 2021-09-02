@@ -36,7 +36,7 @@ function Item({item, remove}){
         <h3>{itemName}</h3>
         <div className="settings">
           <button onClick={transform} className="edit" ><img src={pencil} alt="x"/></button>
-          <button oncClick={() => remove(item) } className="remove" ><img src={xBtn} alt="pencil"/></button>
+          <button onClick={() => remove(item) } className="remove" ><img src={xBtn} alt="pencil"/></button>
         </div>
       </>
     )
@@ -48,7 +48,7 @@ function Item({item, remove}){
         <input className="edit-input" type="text" name="name" value={itemName} onChange={handleChange} 
           onKeyPress={handleOnKeyPress} />
         <div className="settings">
-          <button oncClick={() => remove(item) } className="remove"><img src={xBtn} alt="x"/></button>
+          <button onClick={() => remove(item) } className="remove"><img src={xBtn} alt="x"/></button>
         </div>
       </>
     )
