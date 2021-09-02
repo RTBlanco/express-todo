@@ -3,9 +3,9 @@ import xBtn from '../src/images/X.png';
 import {useState} from 'react';
 
 
-function Item({name, id}){
+function Item({item}){
   const [editing, setEditing] = useState(false);
-  const [itemName, setName] = useState(name)
+  const [itemName, setName] = useState(item.name)
 
   const transform = () =>{
     setEditing(prev => !prev)
@@ -19,7 +19,7 @@ function Item({name, id}){
   const handleOnKeyPress = e => {
     if (e.key === "Enter") {
       transform()
-      if (name !== itemName) {
+      if (item.name !== itemName) {
         // save item
       }
     }

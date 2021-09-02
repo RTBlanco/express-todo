@@ -32,7 +32,7 @@ function App() {
 
 
   const renderItems = () => {
-    return items.map((item) => <Item key={item.id} name={item.name} />)
+    return items.map((item) => <Item key={item.id} item={item} />)
   }
 
   return (
