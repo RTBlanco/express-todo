@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <View style={styles.header}>
       <Text style={styles.h1}>Todo List!</Text>
-      <TextInput placeholder="name"/>
+      <TextInput style={styles.input} placeholder="name"/>
     </View>
   )
 }
@@ -22,14 +22,24 @@ const Header = () => {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 20,
     alignItems: 'center',
     backgroundColor: '#4CC9F0'
   },
 
   h1: {
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    margin: 20
+  },
+
+  input: {
+    width: '100%',
+    backgroundColor: 'whitesmoke',
+    height: 30,
+    borderColor: 'grey',
+    borderTopWidth: 2,
+    borderBottomWidth: 2 
   }
 })
 
