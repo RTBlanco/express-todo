@@ -20,28 +20,30 @@ import {
 
 const App = () => {
   return (
-    <View style={styles.header}>
-      <Text style={styles.h1}>Todo List!</Text>
-      <TextInput placeholder="name"/>
+    <View style={styles.app}>
+      <View style={styles.header}>
+        <Text style={styles.h1}>Todo List!</Text>
+        <TextInput placeholder="name"/>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  header: {
+  app: {
+    flex:1
+  },
 
+  header: {
+    flex: 1,
+    paddingTop: 50,
+    alignItems: 'center',
+    backgroundColor: '#4CC9F0'
   },
 
   h1: {
-
-    // display: block;
-    // fontSize: 2em;
-    // margin-top: 0.67em;
-
-    // margin-bottom: 0.67em;
-    // margin-left: 0;
-    // margin-right: 0;
-    // font-weight: bold;
+    fontSize: 30,
+    fontWeight: 'bold'
   }
 })
 
