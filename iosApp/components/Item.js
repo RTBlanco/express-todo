@@ -40,10 +40,12 @@ const styles = StyleSheet.create({
     // marginBottom: 10,
     borderBottomColor: 'grey',
     borderBottomWidth: 3,
-    
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
 
   settings: {
+    flexDirection: 'row'
 
   },
 
@@ -54,7 +56,8 @@ const styles = StyleSheet.create({
 
   pencil: {
     height: 25,
-    width: 25
+    width: 25,
+    marginRight: 15
   },
 
   x: {
