@@ -17,8 +17,8 @@ const Item = () => {
     <View style={styles.item}>
       <Text style={styles.h3}>Test</Text>
       <View style={styles.settings}>
-        <Image />
-        <Image />
+        <Image style={styles.pencil} source={require('../images/pencil.png')}/>
+        <Image style={styles.x} source={require('../images/X.png')}/>
       </View>
     </View>
   )
@@ -39,11 +39,27 @@ const styles = StyleSheet.create({
     // marginTop: 10,
     // marginBottom: 10,
     borderBottomColor: 'grey',
-    borderBottomWidth: 3
+    borderBottomWidth: 3,
+    
   },
 
   settings: {
 
+  },
+
+  // img: {
+  //   height: 25,
+  //   width: 25
+  // }
+
+  pencil: {
+    height: 25,
+    width: 25
+  },
+
+  x: {
+    height: 25,
+    width: 25
   }
 })
 
