@@ -9,11 +9,13 @@ import {
   View,
   TextInput
 } from 'react-native';
+import Item from './Item';
 
 const Items = () => {
   return (
     <View style={styles.items}>
-      <Text>Hey </Text>
+      {/* Render the items */}
+      <Item />
     </View>
   )
 }
