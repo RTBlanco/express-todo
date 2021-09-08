@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -21,10 +21,15 @@ import Header from './components/Header';
 import Items from './components/Items'
 
 const App = () => {
+
+  const [items, setItems] = useState([
+    {id: 1, name: 'test'}
+  ])
+
   return (
     <View style={styles.app}>
       <Header />
-      <Items />
+      <Items items={items}/>
     </View>
   )
 }

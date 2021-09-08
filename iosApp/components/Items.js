@@ -11,11 +11,15 @@ import {
 } from 'react-native';
 import Item from './Item';
 
-const Items = () => {
+const Items = ({items}) => {
+  const renderItems = () => {
+    return items.map(item => <Item key={item.id} item={item} />)
+  }
   return (
     <View style={styles.items}>
       {/* Render the items */}
-      <Item />
+      {/* <Item /> */}
+      {renderItems()}
     </View>
   )
 }
