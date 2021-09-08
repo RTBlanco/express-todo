@@ -26,9 +26,14 @@ const App = () => {
     {id: 1, name: 'test'}
   ])
 
+  const newItem = (name) => {
+    let item = { id: items.length + 1, name }
+    setItems(prev => [item, ...prev] )
+  }
+
   return (
     <View style={styles.app}>
-      <Header />
+      <Header newItem={newItem}/>
       <Items items={items}/>
     </View>
   )
