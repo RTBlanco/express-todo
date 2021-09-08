@@ -7,7 +7,8 @@ import {
   Text,
   useColorScheme,
   View,
-  TextInput
+  TextInput,
+  Image
 } from 'react-native';
 
 
@@ -16,7 +17,8 @@ const Item = () => {
     <View style={styles.item}>
       <Text style={styles.h3}>Test</Text>
       <View style={styles.settings}>
-        {/* buttons */}
+        <Image />
+        <Image />
       </View>
     </View>
   )
