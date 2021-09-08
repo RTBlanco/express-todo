@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -10,11 +10,22 @@ import {
   TextInput
 } from 'react-native';
 
-const Header = () => {
+const Header = ({newItem}) => {
+  const [name, setName] = useState('')
+
+  const handleChange = (item) => {
+    setName(item)
+  }
+
+  const handleSubmit = () => {
+    newItem(name)
+    setName('')
+  }
+
   return (
     <View style={styles.header}>
       <Text style={styles.h1}>Todo List!</Text>
-      <TextInput style={styles.input} placeholder="name"/>
+      <TextInput style={styles.input} placeholder="name" onChangeText={handleChange} onSubmitEditing={handleSubmit} value={name}/>
     </View>
   )
 }
