@@ -49,11 +49,6 @@ const styles = StyleSheet.create({
 
   },
 
-  // img: {
-  //   height: 25,
-  //   width: 25
-  // }
-
   pencil: {
     height: 25,
     width: 25,
