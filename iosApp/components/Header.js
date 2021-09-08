@@ -21,10 +21,16 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   header: {
-    flex: 1,
+    // flex: 1,
     paddingTop: 20,
     alignItems: 'center',
-    backgroundColor: '#4CC9F0'
+    backgroundColor: '#4CC9F0',
+    height: '15%',
+    borderBottomColor: 'black',
+    borderBottomWidth: 10
+    // Debugging
+    // borderColor: 'red',
+    // borderWidth: 3
   },
 
   h1: {

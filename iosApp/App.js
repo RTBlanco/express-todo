@@ -18,18 +18,21 @@ import {
   TextInput
 } from 'react-native';
 import Header from './components/Header';
+import Items from './components/Items'
 
 const App = () => {
   return (
     <View style={styles.app}>
       <Header />
+      <Items />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   app: {
-    flex:1
+    // flex: 1,
+    height: '100%'
   },
 })
 

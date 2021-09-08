@@ -13,7 +13,7 @@ import {
 const Items = () => {
   return (
     <View style={styles.items}>
-
+      <Text>Hey </Text>
     </View>
   )
 }
@@ -22,7 +22,7 @@ const Items = () => {
 const styles = StyleSheet.create({
   items: {
     flex: 2,
-    backgroundColor: '#4CC9F0'
+    backgroundColor: 'whitesmoke'
   }
 })
 
