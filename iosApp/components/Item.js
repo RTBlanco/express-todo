@@ -12,10 +12,10 @@ import {
 } from 'react-native';
 
 
-const Item = () => {
+const Item = ({item}) => {
   return (
     <View style={styles.item}>
-      <Text style={styles.h3}>Test</Text>
+      <Text style={styles.h3}>{item.name}</Text>
       <View style={styles.settings}>
         <Image style={styles.pencil} source={require('../images/pencil.png')}/>
         <Image style={styles.x} source={require('../images/X.png')}/>
