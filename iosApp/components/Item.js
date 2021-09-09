@@ -8,7 +8,8 @@ import {
   useColorScheme,
   View,
   TextInput,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 
@@ -17,8 +18,12 @@ const Item = ({item, deleteItem}) => {
     <View style={styles.item}>
       <Text style={styles.h3}>{item.name}</Text>
       <View style={styles.settings}>
-        <Image style={styles.pencil} source={require('../images/pencil.png')}/>
-        <Image style={styles.x} source={require('../images/X.png')} onPress={() => deleteItem(item)}/>
+        <TouchableOpacity>
+          <Image style={styles.pencil} source={require('../images/pencil.png')}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => deleteItem(item)}>
+          <Image style={styles.x} source={require('../images/X.png')}/>
+        </TouchableOpacity>
       </View>
     </View>
   )
