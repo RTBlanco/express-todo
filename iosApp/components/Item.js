@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   },
 
   item: {
-    // flex: 1,
     padding: 10,
     borderBottomColor: 'grey',
     borderBottomWidth: 3,
