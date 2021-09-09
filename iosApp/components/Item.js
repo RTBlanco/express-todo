@@ -68,7 +68,6 @@ const Item = ({item, deleteItem}) => {
 
 const styles = StyleSheet.create({
   h3: {
-    // flex: 1,
     fontSize: 20,
     marginTop: 1,
     marginBottom: 1,
