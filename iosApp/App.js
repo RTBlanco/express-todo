@@ -31,10 +31,14 @@ const App = () => {
     setItems(prev => [item, ...prev] )
   }
 
+  const deleteItem = (item) => {
+    setItems(items.filter(i => i.id !== item.id ))
+  }
+
   return (
     <View style={styles.app}>
       <Header newItem={newItem}/>
-      <Items items={items}/>
+      <Items items={items} deleteItem={deleteItem}/>
     </View>
   )
 }
