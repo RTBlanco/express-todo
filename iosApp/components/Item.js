@@ -17,6 +17,15 @@ const Item = ({item, deleteItem}) => {
   const [edit, setEdit] = useState(false);
   const [itemName, setName] = useState(item.name)
 
+  const handleChange = (name) => {
+    setName(name)
+  }
+
+  const handleSubmit = () => {
+    item.name = itemName;
+    setEdit(false)
+  }
+
 
   const normalRender = () => {
     return (
@@ -37,12 +46,10 @@ const Item = ({item, deleteItem}) => {
   const editRender = () => {
     return (
       <View style={styles.item}>
-        {/* <Text style={styles.h3}>{item.name}</Text> */}
-        <TextInput style={styles.h3} value={itemName} onSubmitEditing={() => setEdit(false)}/>
+        <TextInput style={styles.h3} value={itemName} onSubmitEditing={handleSubmit}
+        onChangeText={handleChange} 
+        />
         <View style={styles.settings}>
-          {/* <TouchableOpacity>
-            <Image style={styles.pencil} source={require('../images/pencil.png')}/>
-          </TouchableOpacity> */}
           <TouchableOpacity onPress={() => deleteItem(item)}>
             <Image style={styles.x} source={require('../images/X.png')}/>
           </TouchableOpacity>
