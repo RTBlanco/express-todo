@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -14,17 +14,47 @@ import {
 
 
 const Item = ({item, deleteItem}) => {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.h3}>{item.name}</Text>
-      <View style={styles.settings}>
-        <TouchableOpacity>
-          <Image style={styles.pencil} source={require('../images/pencil.png')}/>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => deleteItem(item)}>
-          <Image style={styles.x} source={require('../images/X.png')}/>
-        </TouchableOpacity>
+  const [edit, setEdit] = useState(false);
+  const [itemName, setName] = useState(item.name)
+
+
+  const normalRender = () => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.h3}>{item.name}</Text>
+        <View style={styles.settings}>
+          <TouchableOpacity onPress={() => setEdit(true)}>
+            <Image style={styles.pencil} source={require('../images/pencil.png')}/>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => deleteItem(item)}>
+            <Image style={styles.x} source={require('../images/X.png')}/>
+          </TouchableOpacity>
+        </View>
       </View>
+    )
+  }
+
+  const editRender = () => {
+    return (
+      <View style={styles.item}>
+        {/* <Text style={styles.h3}>{item.name}</Text> */}
+        <TextInput style={styles.h3} value={itemName} onSubmitEditing={() => setEdit(false)}/>
+        <View style={styles.settings}>
+          {/* <TouchableOpacity>
+            <Image style={styles.pencil} source={require('../images/pencil.png')}/>
+          </TouchableOpacity> */}
+          <TouchableOpacity onPress={() => deleteItem(item)}>
+            <Image style={styles.x} source={require('../images/X.png')}/>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
+
+
+  return (
+    <View>
+      {edit ? editRender() : normalRender() }
     </View>
   )
 }
