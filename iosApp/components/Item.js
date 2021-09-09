@@ -12,13 +12,13 @@ import {
 } from 'react-native';
 
 
-const Item = ({item}) => {
+const Item = ({item, deleteItem}) => {
   return (
     <View style={styles.item}>
       <Text style={styles.h3}>{item.name}</Text>
       <View style={styles.settings}>
         <Image style={styles.pencil} source={require('../images/pencil.png')}/>
-        <Image style={styles.x} source={require('../images/X.png')}/>
+        <Image style={styles.x} source={require('../images/X.png')} onPress={() => deleteItem(item)}/>
       </View>
     </View>
   )
