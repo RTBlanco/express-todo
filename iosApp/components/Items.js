@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import Item from './Item';
 
-const Items = ({items}) => {
+const Items = ({items, deleteItem}) => {
   const renderItems = () => {
-    return items.map(item => <Item key={item.id} item={item} />)
+    return items.map(item => <Item key={item.id} item={item} deleteItem={deleteItem} />)
   }
   return (
     <View style={styles.items}>
