@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
 
   settings: {
     flexDirection: 'row'
-
   },
 
   pencil: {
