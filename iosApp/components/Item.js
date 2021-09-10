@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 
-const Item = ({item, deleteItem}) => {
+const Item = ({item, remove}) => {
   const [edit, setEdit] = useState(false);
   const [itemName, setName] = useState(item.name)
 
@@ -35,7 +35,7 @@ const Item = ({item, deleteItem}) => {
           <TouchableOpacity onPress={() => setEdit(true)}>
             <Image style={styles.pencil} source={require('../images/pencil.png')}/>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => deleteItem(item)}>
+          <TouchableOpacity onPress={() => remove(item)}>
             <Image style={styles.x} source={require('../images/X.png')}/>
           </TouchableOpacity>
         </View>
@@ -50,7 +50,7 @@ const Item = ({item, deleteItem}) => {
         onChangeText={handleChange} 
         />
         <View style={styles.settings}>
-          <TouchableOpacity onPress={() => deleteItem(item)}>
+          <TouchableOpacity onPress={() => remove(item)}>
             <Image style={styles.x} source={require('../images/X.png')}/>
           </TouchableOpacity>
         </View>
