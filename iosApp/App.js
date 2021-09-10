@@ -24,9 +24,17 @@ import {fetchItems, createNewItem, deleteItem} from './helper/connection';
 
 const App = () => {
 
-  const [items, setItems] = useState([
-    {id: 1, name: 'test'}
-  ])
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    fetchItems()
+      .then(resp => {
+        setItems(resp)
+      })
+    // return () => {
+    //   cleanup
+    // }
+  }, [])
 
   const newItem = (name) => {
     let item = { id: items.length + 1, name }
