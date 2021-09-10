@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -19,6 +19,8 @@ import {
 } from 'react-native';
 import Header from './components/Header';
 import Items from './components/Items'
+import {fetchItems, createNewItem, deleteItem} from './helper/connection';
+
 
 const App = () => {
 
