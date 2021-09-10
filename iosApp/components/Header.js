@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {createNewItem} from '../helper/connection';
 
-const Header = ({newItem}) => {
+const Header = ({newItem, setItems}) => {
   const [name, setName] = useState('')
 
   const handleChange = (item) => {
@@ -21,7 +21,10 @@ const Header = ({newItem}) => {
   const handleSubmit = () => {
     const form = new FormData()
     form.append('name', name)
-    createNewItem(form)
+
+    createNewItem(form).then(resp => {
+      setItems(prev => [...prev, resp])
+    })
     // newItem(name)
     setName('')
   }
