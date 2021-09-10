@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <View style={styles.app}>
-      <Header newItem={newItem}/>
+      <Header newItem={newItem} setItems={setItems}/>
       <Items items={items} deleteItem={deleteItem}/>
     </View>
   )

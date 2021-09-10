@@ -9,6 +9,7 @@ import {
   View,
   TextInput
 } from 'react-native';
+import {createNewItem} from '../helper/connection';
 
 const Header = ({newItem}) => {
   const [name, setName] = useState('')
@@ -18,7 +19,10 @@ const Header = ({newItem}) => {
   }
 
   const handleSubmit = () => {
-    newItem(name)
+    const form = new FormData()
+    form.append('name', name)
+    createNewItem(form)
+    // newItem(name)
     setName('')
   }
 
