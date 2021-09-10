@@ -11,7 +11,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import { updateItem } from './helper/connection';
+import { updateItem } from '../helper/connection';
 
 
 const Item = ({item, remove}) => {
@@ -23,7 +23,14 @@ const Item = ({item, remove}) => {
   }
 
   const handleSubmit = () => {
-    item.name = itemName;
+    // setEdit(false)
+    if (item.name !== itemName) {
+      const form = new FormData()
+      form.append('name', itemName)
+      updateItem(item, form)
+      item.name = itemName;
+      // save item
+    }
     setEdit(false)
   }
 
