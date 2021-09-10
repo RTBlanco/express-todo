@@ -11,6 +11,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
+import { updateItem } from './helper/connection';
 
 
 const Item = ({item, remove}) => {
