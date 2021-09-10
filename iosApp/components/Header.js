@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {createNewItem} from '../helper/connection';
 
-const Header = ({newItem, setItems}) => {
+const Header = ({setItems}) => {
   const [name, setName] = useState('')
 
   const handleChange = (item) => {
