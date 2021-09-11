@@ -7,7 +7,8 @@ import {
   Text,
   useColorScheme,
   View,
-  TextInput
+  TextInput,
+  Alert
 } from 'react-native';
 import {createNewItem} from '../helper/connection';
 
