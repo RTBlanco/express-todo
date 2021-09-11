@@ -25,7 +25,6 @@ const Header = ({setItems}) => {
       createNewItem(form).then(resp => {
         setItems(prev => [...prev, resp])
       })
-      // newItem(name)
       setName('')
     }
   }
