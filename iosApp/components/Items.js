@@ -7,7 +7,8 @@ import {
   Text,
   useColorScheme,
   View,
-  TextInput
+  TextInput,
+  FlatList
 } from 'react-native';
 import Item from './Item';
 
@@ -16,11 +17,12 @@ const Items = ({items, remove}) => {
     return items.map(item => <Item key={item.id} item={item} remove={remove} />)
   }
   return (
-    <View style={styles.items}>
-      {/* Render the items */}
-      {/* <Item /> */}
-      {renderItems()}
-    </View>
+    // <View style={styles.items}>
+    //   {/* Render the items */}
+    //   {/* <Item /> */}
+    //   {renderItems()}
+    // </View>
+    <FlatList style={styles.items} data={items} renderItem={({item}) => <Item key={item.id} item={item} remove={remove} />}/>
   )
 }
 
