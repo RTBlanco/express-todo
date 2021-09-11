@@ -20,14 +20,18 @@ const Header = ({setItems}) => {
   }
 
   const handleSubmit = () => {
-    const form = new FormData()
-    form.append('name', name)
-
-    createNewItem(form).then(resp => {
-      setItems(prev => [...prev, resp])
-    })
-    // newItem(name)
-    setName('')
+    if (name.length === 0){
+      Alert.alert('Empty Input', 'Please enter text')
+    } else {
+      const form = new FormData()
+      form.append('name', name)
+  
+      createNewItem(form).then(resp => {
+        setItems(prev => [...prev, resp])
+      })
+      // newItem(name)
+      setName('')
+    }
   }
 
   return (
