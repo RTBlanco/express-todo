@@ -44,16 +44,10 @@ const Header = ({setItems}) => {
 
 const styles = StyleSheet.create({
   header: {
-    // flex: 1,
     paddingTop: 20,
     alignItems: 'center',
     backgroundColor: '#4CC9F0',
     height: '14%',
-    // borderBottomColor: 'black',
-    // borderBottomWidth: 2
-    // Debugging
-    // borderColor: 'red',
-    // borderWidth: 3
   },
 
   h1: {
