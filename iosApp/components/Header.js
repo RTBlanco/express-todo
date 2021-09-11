@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     alignItems: 'center',
     backgroundColor: '#4CC9F0',
-    height: 128,
-    borderBottomColor: 'black',
-    borderBottomWidth: 2
+    height: '14%',
+    // borderBottomColor: 'black',
+    // borderBottomWidth: 2
     // Debugging
     // borderColor: 'red',
     // borderWidth: 3
@@ -58,12 +58,16 @@ const styles = StyleSheet.create({
   },
 
   input: {
+    fontSize: 15,
     width: '100%',
     backgroundColor: 'whitesmoke',
-    height: 30,
+    height: 35,
     borderColor: 'grey',
+    borderBottomColor: 'black',
     borderTopWidth: 2,
-    borderBottomWidth: 2 
+    borderBottomWidth: 4,
+    position: "absolute",
+    bottom: 0
   }
 })
 
